@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+  <string name="Login">Login</string>
+  <string name="ApplicationName">Auth0 Android Sample</string>
+  <string name="auth0_domain">{DOMAIN}</string>
+  <string name="auth0_client_id">{CLIENT_ID}</string>
+</resources>
