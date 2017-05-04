@@ -3,14 +3,16 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-  <Button
-    android:id="@+id/LoginButton"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="@string/Login" />
-  <TextView
-    android:id="@+id/UserDetailsTextView"
-    android:text="Text"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    <Button
+        android:id="@+id/LoginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Login" />
+    <TextView
+        android:id="@+id/UserDetailsTextView"
+        android:text="Text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:maxLines="10000" />
 </LinearLayout>
