@@ -1,17 +1,13 @@
-﻿using System;
-using System.Text;
-using Android.App;
+﻿using Android.App;
 using Android.Content;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
+using Android.Text.Method;
+using Android.Widget;
 using Auth0.OidcClient;
 using IdentityModel.OidcClient;
-using Android.Support.CustomTabs;
-using Android.Graphics;
-using Android.Text.Method;
+using System;
+using System.Text;
 
 namespace AndroidSample
 {
@@ -47,7 +43,8 @@ namespace AndroidSample
             client = new Auth0Client(new Auth0ClientOptions
             {
                 Domain = Resources.GetString(Resource.String.auth0_domain),
-                ClientId = Resources.GetString(Resource.String.auth0_client_id)
+                ClientId = Resources.GetString(Resource.String.auth0_client_id),
+                Activity = this
             });
         }
 
@@ -103,20 +100,14 @@ namespace AndroidSample
             progress.SetCancelable(false); // disable dismiss by tapping outside of the dialog
             progress.Show();
 
+            // Prepare for the login
             authorizeState = await client.PrepareLoginAsync();
 
-            var customTabs = new CustomTabsActivityManager(this);
-
-            // build custom tab
-            var builder = new CustomTabsIntent.Builder(customTabs.Session)
-               .SetToolbarColor(Color.Argb(255, 52, 152, 219))
-               .SetShowTitle(true)
-               .EnableUrlBarHiding();
-
-            var customTabsIntent = builder.Build();
-            customTabsIntent.Intent.AddFlags(ActivityFlags.NoHistory);
-
-            customTabsIntent.LaunchUrl(this, Android.Net.Uri.Parse(authorizeState.StartUrl));
+            // Send the user off to the authorization endpoint
+            var uri = Android.Net.Uri.Parse(authorizeState.StartUrl);
+            var intent = new Intent(Intent.ActionView, uri);
+            intent.AddFlags(ActivityFlags.NoHistory);
+            StartActivity(intent);
         }
     }
 }
