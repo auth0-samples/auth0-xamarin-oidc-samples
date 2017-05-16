@@ -45,13 +45,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Auth0.OidcClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Auth0.OidcClient.Android.1.0.0-beta3\lib\MonoAndroid10\Auth0.OidcClient.dll</HintPath>
+      <HintPath>..\packages\Auth0.OidcClient.Android.1.0.0\lib\MonoAndroid10\Auth0.OidcClient.dll</HintPath>
     </Reference>
     <Reference Include="IdentityModel, Version=2.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\IdentityModel.2.6.0\lib\netstandard1.3\IdentityModel.dll</HintPath>
     </Reference>
-    <Reference Include="IdentityModel.OidcClient, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\IdentityModel.OidcClient.2.1.1\lib\netstandard1.4\IdentityModel.OidcClient.dll</HintPath>
+    <Reference Include="IdentityModel.OidcClient, Version=2.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\IdentityModel.OidcClient.2.1.2\lib\netstandard1.4\IdentityModel.OidcClient.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=1.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
