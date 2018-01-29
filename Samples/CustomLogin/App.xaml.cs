@@ -19,9 +19,9 @@ namespace CustomLogin
                 DependencyService.Register<CloudDataStore>();
 
             if (Device.RuntimePlatform == Device.iOS)
-                MainPage = new MainPage();
+                MainPage = new LoginPage();
             else
-                MainPage = new NavigationPage(new MainPage());
+                MainPage = new NavigationPage(new LoginPage());
         }
     }
 }

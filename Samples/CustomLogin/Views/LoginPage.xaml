@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CustomLogin.LoginPage" BackgroundColor="White">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ActionButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#d34a2e" />
+                <Setter Property="BorderRadius" Value="0" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+
+            <!--
+            <Style x:Key="FacebookLoginButtonStyle" TargetType="Button">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            -->
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+	<Grid RowSpacing="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="80" />
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Grid Grid.Row="0" BackgroundColor="#eeeeee">
+        </Grid>
+
+        <!-- Social Login Buttons -->
+        <StackLayout Grid.Row="1">
+            <Button Text="Login with Facebook" />
+            <Button Text="Login with Google" />
+            <!--
+            <Frame CornerRadius="0" BackgroundColor="#4167b2" HeightRequest="60" Margin="20" Padding="0" HasShadow="false">
+                <StackLayout Orientation="Horizontal" Padding="5">
+                <Image HeightRequest="80" Aspect="AspectFill" Source="http://3daystartup.org/wp-content/uploads/2011/07/facebook-logo-png-white-facebook-logo-png-white-facebook-icon-png-32.png" />
+                <Label Text="Continue with Facebook" VerticalOptions="CenterAndExpand" FontSize="20" FontAttributes="Bold" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="FacebookButton" AutomationId="FacebookButton" Command="{Binding FacebookButtonCommand}" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </Frame>
+            -->
+            
+        </StackLayout>
+        
+        <!-- Input Buttons -->
+        <Grid Grid.Row="2">
+            <StackLayout Padding="10, 10" Spacing="15">
+                <Entry Placeholder="Email or username" FontSize="20" Text="{Binding Username}" />
+                <Entry Placeholder="Password" FontSize="20" IsPassword="true" Text="{Binding Password}" />
+            </StackLayout>
+        </Grid>
+        
+        <!-- Login / Signup Button -->
+        <Button Grid.Row="3" Text="LOG IN >" Style="{StaticResource ActionButtonStyle}" Command="{Binding LoginCommand}" />
+    </Grid>
+</ContentPage>
