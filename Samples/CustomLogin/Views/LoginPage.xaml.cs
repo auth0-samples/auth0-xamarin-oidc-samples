@@ -13,7 +13,7 @@ namespace CustomLogin
         {
             InitializeComponent();
 
-            BindingContext = viewModel = new LoginViewModel();
+            BindingContext = viewModel = new LoginViewModel(Navigation);
         }
     }
 }

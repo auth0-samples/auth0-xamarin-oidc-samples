@@ -1,12 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 
 using Xamarin.Forms;
 
 namespace CustomLogin
 {
-    public partial class AboutPage : ContentPage
+    public partial class ProfilePage : ContentPage
     {
-        public AboutPage()
+        public ProfilePage()
         {
             InitializeComponent();
 
