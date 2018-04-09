@@ -14,6 +14,10 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Auth0.OidcClient;
+using Autofac;
+using Autofac.Extras.CommonServiceLocator;
+using CommonServiceLocator;
 
 namespace FormsSample.UWP
 {
@@ -39,7 +43,13 @@ namespace FormsSample.UWP
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
-
+#if DEBUG
+            if (System.Diagnostics.Debugger.IsAttached)
+            {
+                this.DebugSettings.EnableFrameRateCounter = true;
+                System.Diagnostics.Debug.WriteLine(Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri());
+            }
+#endif
 
             Frame rootFrame = Window.Current.Content as Frame;
 
@@ -53,6 +63,19 @@ namespace FormsSample.UWP
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
                 Xamarin.Forms.Forms.Init(e);
+
+                ContainerBuilder builder = new ContainerBuilder();
+                builder.Register(context => new Auth0Client(new Auth0ClientOptions
+                {
+                    Domain = "jerrie.auth0.com",
+                    ClientId = "vV9twaySQzfGesS9Qs6gOgqDsYDdgoKE"
+                })).As<IAuth0Client>();
+
+                IContainer container = builder.Build();
+
+                AutofacServiceLocator asl = new AutofacServiceLocator(container);
+                ServiceLocator.SetLocatorProvider(() => asl);
+
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {

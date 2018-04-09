@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Auth0.OidcClient.Core" Version="2.0.0-beta1" />
+    <PackageReference Include="CommonServiceLocator" Version="2.0.3" />
     <PackageReference Include="Xamarin.Forms" Version="2.5.0.280555" />
   </ItemGroup>
 

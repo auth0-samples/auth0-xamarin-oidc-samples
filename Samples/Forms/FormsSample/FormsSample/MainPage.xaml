@@ -4,8 +4,8 @@
              xmlns:local="clr-namespace:FormsSample"
              x:Class="FormsSample.MainPage">
 
-	<Label Text="Welcome to Xamarin.Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+    <StackLayout Margin="40">
+        <Button Text="Login" x:Name="Login" />
+    </StackLayout>
 
 </ContentPage>
