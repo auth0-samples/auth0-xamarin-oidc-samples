@@ -34,9 +34,8 @@ namespace iOSSample
 		{
 			_client = new Auth0Client(new Auth0ClientOptions
 			{
-				Domain = "{DOMAIN}",
-				ClientId = "{CLIENT_ID}",
-				Controller = this
+                Domain = "{DOMAIN}",
+                ClientId = "{CLIENT_ID}"
 			});
 
 			var loginResult = await _client.LoginAsync(null);
