@@ -5,7 +5,8 @@
              x:Class="FormsSample.MainPage">
 
     <StackLayout Margin="40">
-        <Button Text="Login" x:Name="Login" />
+        <Button Text="Login" x:Name="LoginButton" />
+        <Label x:Name="ResultLabel" LineBreakMode="WordWrap" />
     </StackLayout>
 
 </ContentPage>
