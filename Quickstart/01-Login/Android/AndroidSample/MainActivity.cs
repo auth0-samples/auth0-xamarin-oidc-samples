@@ -43,7 +43,8 @@ namespace AndroidSample
             client = new Auth0Client(new Auth0ClientOptions
             {
                 Domain = Resources.GetString(Resource.String.auth0_domain),
-                ClientId = Resources.GetString(Resource.String.auth0_client_id)
+                ClientId = Resources.GetString(Resource.String.auth0_client_id),
+                Scope = "openid profile"
             });
         }
 
@@ -64,7 +65,7 @@ namespace AndroidSample
         {
             base.OnNewIntent(intent);
 
-            Auth0.OidcClient.ActivityMediator.Instance.Send(intent.DataString);
+            ActivityMediator.Instance.Send(intent.DataString);
         }
 
         private async void LoginButtonOnClick(object sender, EventArgs eventArgs)
