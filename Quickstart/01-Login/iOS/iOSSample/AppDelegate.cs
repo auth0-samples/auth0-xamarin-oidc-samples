@@ -18,13 +18,12 @@ namespace iOSSample
 			set;
 		}
 
-		public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
-		{
-			ActivityMediator.Instance.Send(url.AbsoluteString);
+	    public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
+	    {
+	        ActivityMediator.Instance.Send(url.AbsoluteString);
 
-			return true;
-		}
-
+	        return true;
+	    }
 
 		public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
 		{

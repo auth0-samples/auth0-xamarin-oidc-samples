@@ -44,7 +44,7 @@ namespace AndroidSample
             {
                 Domain = Resources.GetString(Resource.String.auth0_domain),
                 ClientId = Resources.GetString(Resource.String.auth0_client_id),
-                Activity = this
+                Scope = "openid profile"
             });
         }
 
@@ -61,11 +61,25 @@ namespace AndroidSample
             }
         }
 
-        protected override async void OnNewIntent(Intent intent)
+        protected override void OnNewIntent(Intent intent)
         {
             base.OnNewIntent(intent);
 
-            var loginResult = await client.ProcessResponseAsync(intent.DataString, authorizeState);
+            ActivityMediator.Instance.Send(intent.DataString);
+        }
+
+        private async void LoginButtonOnClick(object sender, EventArgs eventArgs)
+        {
+            userDetailsTextView.Text = "";
+
+            progress = new ProgressDialog(this);
+            progress.SetTitle("Log In");
+            progress.SetMessage("Please wait while redirecting to login screen...");
+            progress.SetCancelable(false); // disable dismiss by tapping outside of the dialog
+            progress.Show();
+
+            // Login
+            var loginResult = await client.LoginAsync();
 
             var sb = new StringBuilder();
             if (loginResult.IsError)
@@ -88,26 +102,6 @@ namespace AndroidSample
             }
 
             userDetailsTextView.Text = sb.ToString();
-        }
-
-        private async void LoginButtonOnClick(object sender, EventArgs eventArgs)
-        {
-            userDetailsTextView.Text = "";
-
-            progress = new ProgressDialog(this);
-            progress.SetTitle("Log In");
-            progress.SetMessage("Please wait while redirecting to login screen...");
-            progress.SetCancelable(false); // disable dismiss by tapping outside of the dialog
-            progress.Show();
-
-            // Prepare for the login
-            authorizeState = await client.PrepareLoginAsync();
-
-            // Send the user off to the authorization endpoint
-            var uri = Android.Net.Uri.Parse(authorizeState.StartUrl);
-            var intent = new Intent(Intent.ActionView, uri);
-            intent.AddFlags(ActivityFlags.NoHistory);
-            StartActivity(intent);
         }
     }
 }
