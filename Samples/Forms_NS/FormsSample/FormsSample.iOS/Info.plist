@@ -25,7 +25,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>FormsSample</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.companyname.FormsSample</string>
+	<string>com.auth0.FormsSample</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>UILaunchStoryboardName</key>
@@ -34,5 +34,23 @@
 	<string>FormsSample</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>Document Type 1</string>
+		</dict>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>Auth0</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.auth0.formssample</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>
