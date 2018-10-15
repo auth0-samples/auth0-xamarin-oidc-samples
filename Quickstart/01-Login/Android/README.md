@@ -75,7 +75,7 @@ private async void LoginButtonOnClick(object sender, EventArgs eventArgs)
 }
 ```
 
-### 4. Pass the Callback URL to the OIDC Client
+### 3. Pass the Callback URL to the OIDC Client
 
 The user will be redirected to the Auth0 Hosted Lock page where they can log in. After the user has authenticated, Auth0 will redirect them back to the **callback URL** which was registered when your created your Client in the Auth0 Dashboard.
 
@@ -94,7 +94,7 @@ protected override async void OnNewIntent(Intent intent)
 }
 ```
 
-### 3. Process the Login Result
+### 4. Process the Login Result
 
 You can check the `LoginResult` returned by calling the `ProcessResponseAsync` to see whether authentication was successful. The `IsError` flag will indicate if there was an error, and if so, you can extract the error message from the `Error` property.
 
