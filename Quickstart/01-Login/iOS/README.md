@@ -1,14 +1,19 @@
 # Login
+<img src="https://img.shields.io/badge/community-driven-brightgreen.svg"/> <br>
 
 This example shows how to add ***Login/SignUp*** to your Xamarin iOS application using the [Auth0 OIDC Client for .NET](https://github.com/auth0/auth0-oidc-client-net).
 
 You can read a quickstart for this sample [here](https://auth0.com/docs/quickstart/native/xamarin).
 
-## Requirements
+This repo is supported and maintained by Community Developers, not Auth0. For more information about different support levels check https://auth0.com/docs/support/matrix .
+
+## Getting started
+
+### Requirements
 
 * Visual Studio for Mac
 
-## To run this project
+### Installation
 
 1. Create an Auth0 Client and set the callback URL to `com.auth0.iossample://YOUR_AUTH0_DOMAIN/ios/com.auth0.iossample/callback`. Be sure to replace `YOUR_AUTH0_DOMAIN` with your own Auth0 domain, for example `com.auth0.iossample://mycompany.auth0.com/ios/com.auth0.iossample/callback`
 
@@ -18,7 +23,7 @@ You can read a quickstart for this sample [here](https://auth0.com/docs/quicksta
 
 4. Click on the **Login** button in your application in order to Log In with Auth0.
 
-## Important Snippets
+## Usage
 
 ### 1. Initialize the OIDC Client
 
@@ -29,14 +34,14 @@ You can initialize Auth0 OIDC Client by creating a new instance of the `Auth0Cli
 
 private async void LoginButton_TouchUpInside(object sender, EventArgs e)
 {
-	_client = new Auth0Client(new Auth0ClientOptions
-	{
-		Domain = "{DOMAIN}",
-		ClientId = "{CLIENT_ID}",
-		Controller = this
-	});
+_client = new Auth0Client(new Auth0ClientOptions
+{
+Domain = "{DOMAIN}",
+ClientId = "{CLIENT_ID}",
+Controller = this
+});
 
-	//...
+//...
 }
 ```
 
@@ -49,16 +54,16 @@ To initiate the login process, you can call the `LoginAsync` method, optionally 
 
 private async void LoginButton_TouchUpInside(object sender, EventArgs e)
 {
-	_client = new Auth0Client(new Auth0ClientOptions
-	{
-		Domain = "{DOMAIN}",
-		ClientId = "{CLIENT_ID}",
-		Controller = this
-	});
+_client = new Auth0Client(new Auth0ClientOptions
+{
+Domain = "{DOMAIN}",
+ClientId = "{CLIENT_ID}",
+Controller = this
+});
 
-	var loginResult = await _client.LoginAsync(null);
+var loginResult = await _client.LoginAsync(null);
 
-	//...
+//...
 }
 ```
 
@@ -73,36 +78,36 @@ If the authentication was successful, you can obtain the user's information from
 
 private async void LoginButton_TouchUpInside(object sender, EventArgs e)
 {
-	_client = new Auth0Client(new Auth0ClientOptions
-	{
-		Domain = "{DOMAIN}",
-		ClientId = "{CLIENT_ID}",
-		Controller = this
-	});
+_client = new Auth0Client(new Auth0ClientOptions
+{
+Domain = "{DOMAIN}",
+ClientId = "{CLIENT_ID}",
+Controller = this
+});
 
-	var loginResult = await _client.LoginAsync(null);
+var loginResult = await _client.LoginAsync(null);
 
-	var sb = new StringBuilder();
+var sb = new StringBuilder();
 
-	if (loginResult.IsError)
-	{
-		sb.AppendLine("An error occurred during login:");
-		sb.AppendLine(loginResult.Error);
-	}
-	else
-	{
-		sb.AppendLine($"ID Token: {loginResult.IdentityToken}");
-		sb.AppendLine($"Access Token: {loginResult.AccessToken}");
-		sb.AppendLine($"Refresh Token: {loginResult.RefreshToken}");
-		sb.AppendLine();
-		sb.AppendLine("-- Claims --");
-		foreach (var claim in loginResult.User.Claims)
-		{
-			sb.AppendLine($"{claim.Type} = {claim.Value}");
-		}
-	}
+if (loginResult.IsError)
+{
+sb.AppendLine("An error occurred during login:");
+sb.AppendLine(loginResult.Error);
+}
+else
+{
+sb.AppendLine($"ID Token: {loginResult.IdentityToken}");
+sb.AppendLine($"Access Token: {loginResult.AccessToken}");
+sb.AppendLine($"Refresh Token: {loginResult.RefreshToken}");
+sb.AppendLine();
+sb.AppendLine("-- Claims --");
+foreach (var claim in loginResult.User.Claims)
+{
+sb.AppendLine($"{claim.Type} = {claim.Value}");
+}
+}
 
-	UserDetailsTextView.Text = sb.ToString();
+UserDetailsTextView.Text = sb.ToString();
 }
 ```
 
@@ -117,8 +122,65 @@ This will give open your application again, and you will need to pass this URL t
 
 public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
 {
-	ActivityMediator.Instance.Send(url.AbsoluteString);
+ActivityMediator.Instance.Send(url.AbsoluteString);
 
-	return true;
+return true;
 }
 ```
+
+## Contribute
+
+Feel like contributing to this repo? We're glad to hear that! Before you start contributing please visit our [Contributing Guideline](https://github.com/auth0-community/getting-started/blob/master/CONTRIBUTION.md).
+
+Here you can also find the [PR template](https://github.com/auth0-community/auth0-xamarin-oidc-samples/blob/master/PULL_REQUEST_TEMPLATE.md) to fill once creating a PR. It will automatically appear once you open a pull request.
+
+## Issues Reporting
+
+Spotted a bug or any other kind of issue? We're just humans and we're always waiting for constructive feedback! Check our section on how to [report issues](https://github.com/auth0-community/getting-started/blob/master/CONTRIBUTION.md#issues)!
+
+Here you can also find the [Issue template](https://github.com/auth0-community/auth0-xamarin-oidc-samples/blob/master/ISSUE_TEMPLATE.md) to fill once opening a new issue. It will automatically appear once you create an issue.
+
+## Repo Community
+
+Feel like PRs and issues are not enough? Want to dive into further discussion about the tool? We created topics for each Auth0 Community repo so that you can join discussion on stack available on our repos. Here it is for this one: [auth0-xamarin-oidc-samples](https://community.auth0.com/t/auth0-community-oss-auth0-xamarin-oidc-samples/15973)
+
+<a href="https://community.auth0.com/">
+<img src="/Assets/join_auth0_community_badge.png"/>
+</a>
+
+## License
+
+This project is licensed under the MIT license. See the [LICENSE](https://github.com/auth0-community/auth0-xamarin-oidc-samples/blob/master/LICENSE) file for more info.
+
+## What is Auth0?
+
+Auth0 helps you to:
+
+* Add authentication with [multiple authentication sources](https://docs.auth0.com/identityproviders), either social like
+* Google
+* Facebook
+* Microsoft
+* Linkedin
+* GitHub
+* Twitter
+* Box
+* Salesforce
+* etc.
+
+**or** enterprise identity systems like:
+* Windows Azure AD
+* Google Apps
+* Active Directory
+* ADFS
+* Any SAML Identity Provider
+
+* Add authentication through more traditional [username/password databases](https://docs.auth0.com/mysql-connection-tutorial)
+* Add support for [linking different user accounts](https://docs.auth0.com/link-accounts) with the same user
+* Support for generating signed [JSON Web Tokens](https://docs.auth0.com/jwt) to call your APIs and create user identity flow securely
+* Analytics of how, when and where users are logging in
+* Pull data from other sources and add it to user profile, through [JavaScript rules](https://docs.auth0.com/rules)
+
+## Create a free Auth0 account
+
+* Go to [Auth0 website](https://auth0.com/signup)
+* Hit the **SIGN UP** button in the upper-right corner
