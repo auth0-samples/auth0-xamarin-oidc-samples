@@ -8,6 +8,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/Login" />
+	<Button 
+		android:id="@+id/LogoutButton"
+		android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+		android:visibility="gone"
+		android:text="@string/Logout" />
     <TextView
         android:id="@+id/UserDetailsTextView"
         android:text="Text"
