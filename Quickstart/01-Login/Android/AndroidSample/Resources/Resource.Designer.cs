@@ -336,29 +336,32 @@ namespace AndroidSample
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f09000b
-			public const int LoginButton = 2131296267;
-			
 			// aapt resource value: 0x7f09000c
-			public const int LogoutButton = 2131296268;
-			
-			// aapt resource value: 0x7f09000d
-			public const int UserDetailsTextView = 2131296269;
+			public const int LoginButton = 2131296268;
 			
 			// aapt resource value: 0x7f09000e
-			public const int action_container = 2131296270;
+			public const int LogoutButton = 2131296270;
 			
-			// aapt resource value: 0x7f09001a
-			public const int action_divider = 2131296282;
+			// aapt resource value: 0x7f09000d
+			public const int UserButton = 2131296269;
 			
 			// aapt resource value: 0x7f09000f
-			public const int action_image = 2131296271;
+			public const int UserDetailsTextView = 2131296271;
 			
 			// aapt resource value: 0x7f090010
-			public const int action_text = 2131296272;
+			public const int action_container = 2131296272;
 			
-			// aapt resource value: 0x7f09001b
-			public const int actions = 2131296283;
+			// aapt resource value: 0x7f09001c
+			public const int action_divider = 2131296284;
+			
+			// aapt resource value: 0x7f090011
+			public const int action_image = 2131296273;
+			
+			// aapt resource value: 0x7f090012
+			public const int action_text = 2131296274;
+			
+			// aapt resource value: 0x7f09001d
+			public const int actions = 2131296285;
 			
 			// aapt resource value: 0x7f090006
 			public const int async = 2131296262;
@@ -366,20 +369,20 @@ namespace AndroidSample
 			// aapt resource value: 0x7f090007
 			public const int blocking = 2131296263;
 			
-			// aapt resource value: 0x7f090019
-			public const int chronometer = 2131296281;
+			// aapt resource value: 0x7f09001b
+			public const int chronometer = 2131296283;
 			
 			// aapt resource value: 0x7f090008
 			public const int forever = 2131296264;
 			
-			// aapt resource value: 0x7f090012
-			public const int icon = 2131296274;
+			// aapt resource value: 0x7f090014
+			public const int icon = 2131296276;
 			
-			// aapt resource value: 0x7f09001c
-			public const int icon_group = 2131296284;
+			// aapt resource value: 0x7f09001e
+			public const int icon_group = 2131296286;
 			
-			// aapt resource value: 0x7f090015
-			public const int info = 2131296277;
+			// aapt resource value: 0x7f090017
+			public const int info = 2131296279;
 			
 			// aapt resource value: 0x7f090009
 			public const int italic = 2131296265;
@@ -390,23 +393,26 @@ namespace AndroidSample
 			// aapt resource value: 0x7f090001
 			public const int line3 = 2131296257;
 			
+			// aapt resource value: 0x7f09000b
+			public const int linearLayout1 = 2131296267;
+			
 			// aapt resource value: 0x7f09000a
 			public const int normal = 2131296266;
 			
-			// aapt resource value: 0x7f090017
-			public const int notification_background = 2131296279;
+			// aapt resource value: 0x7f090019
+			public const int notification_background = 2131296281;
+			
+			// aapt resource value: 0x7f090015
+			public const int notification_main_column = 2131296277;
 			
 			// aapt resource value: 0x7f090013
-			public const int notification_main_column = 2131296275;
+			public const int notification_main_column_container = 2131296275;
 			
-			// aapt resource value: 0x7f090011
-			public const int notification_main_column_container = 2131296273;
+			// aapt resource value: 0x7f090018
+			public const int right_icon = 2131296280;
 			
 			// aapt resource value: 0x7f090016
-			public const int right_icon = 2131296278;
-			
-			// aapt resource value: 0x7f090014
-			public const int right_side = 2131296276;
+			public const int right_side = 2131296278;
 			
 			// aapt resource value: 0x7f090002
 			public const int tag_transition_group = 2131296258;
@@ -417,8 +423,8 @@ namespace AndroidSample
 			// aapt resource value: 0x7f090004
 			public const int text2 = 2131296260;
 			
-			// aapt resource value: 0x7f090018
-			public const int time = 2131296280;
+			// aapt resource value: 0x7f09001a
+			public const int time = 2131296282;
 			
 			// aapt resource value: 0x7f090005
 			public const int title = 2131296261;
@@ -498,11 +504,14 @@ namespace AndroidSample
 			// aapt resource value: 0x7f040004
 			public const int Logout = 2130968580;
 			
-			// aapt resource value: 0x7f040006
-			public const int auth0_client_id = 2130968582;
-			
 			// aapt resource value: 0x7f040005
-			public const int auth0_domain = 2130968581;
+			public const int UserInfo = 2130968581;
+			
+			// aapt resource value: 0x7f040007
+			public const int auth0_client_id = 2130968583;
+			
+			// aapt resource value: 0x7f040006
+			public const int auth0_domain = 2130968582;
 			
 			// aapt resource value: 0x7f040000
 			public const int status_bar_notification_info_overflow = 2130968576;
