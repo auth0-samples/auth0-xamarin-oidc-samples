@@ -5,7 +5,7 @@ This example shows how to add ***Login/SignUp*** to your Xamarin Android applica
 
 You can read a quickstart for this sample [here](https://auth0.com/docs/quickstart/native/xamarin).
 
-This repo is supported and maintained by Community Developers, not Auth0. For more information about different support levels check https://auth0.com/docs/support/matrix .
+This repo is supported and maintained by Community Developers, not Auth0. For more information about different support levels check https://auth0.com/docs/support/matrix.
 
 ## Getting started
 
@@ -13,20 +13,22 @@ This repo is supported and maintained by Community Developers, not Auth0. For mo
 
 * Visual Studio for Mac
 
-OR 
+OR
 
 * Visual Studio 2017
 * Xamarin for Visual Studio 4.5
 
 ### Installation
 
-1. Create an Auth0 Client and set the callback URL to `com.auth0.quickstart://YOUR_AUTH0_DOMAIN/android/com.auth0.quickstart/callback`. Be sure to replace `YOUR_AUTH0_DOMAIN` with your own Auth0 domain, for example `com.auth0.quickstart://mycompany.auth0.com/android/com.auth0.quickstart/callback`
+1. Create an Auth0 Client and set the callback URL to `com.auth0.quickstart://YOUR_AUTH0_DOMAIN/android/com.auth0.quickstart/callback`. Be sure to replace `YOUR_AUTH0_DOMAIN` with your own Auth0 domain, for example `com.auth0.quickstart://mycompany.auth0.com/android/com.auth0.quickstart/callback`.
 
-2. Set the values for the `auth0_domain` and `auth0_client_id` strings inside `/Resources/values/Strings.xml` to the values of your Auth0 Client's **domain** and **Client Id**.
+2. Set the logout URL to `com.auth0.quickstart://YOUR_AUTH0_DOMAIN/android/com.auth0.quickstart/callback`. Be sure to replace `YOUR_AUTH0_DOMAIN` with your own Auth0 domain, for example `com.auth0.quickstart://mycompany.auth0.com/android/com.auth0.quickstart/callback`.
 
-3. Run the application from Visual Studio.
+3. Set the values for the `auth0_domain` and `auth0_client_id` strings inside `/Resources/values/Strings.xml` to the values of your Auth0 Client's **domain** and **Client Id**.
 
-4. Click on the **Login** button in your application in order to Log In with Auth0.
+4. Run the application from Visual Studio.
+
+5. Click on the **Login** button in your application in order to Log In with Auth0.
 
 ## Usage
 
@@ -46,8 +48,7 @@ base.OnCreate(bundle);
 client = new Auth0Client(new Auth0ClientOptions
 {
 Domain = Resources.GetString(Resource.String.auth0_domain),
-ClientId = Resources.GetString(Resource.String.auth0_client_id),
-Activity = this
+ClientId = Resources.GetString(Resource.String.auth0_client_id)
 });
 }
 ```

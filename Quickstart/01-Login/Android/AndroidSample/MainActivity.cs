@@ -4,8 +4,10 @@ using Android.Content.PM;
 using Android.OS;
 using Android.Text.Method;
 using Android.Widget;
+using Android.Views;
 using Auth0.OidcClient;
 using IdentityModel.OidcClient;
+using IdentityModel.OidcClient.Browser;
 using System;
 using System.Text;
 
@@ -23,8 +25,8 @@ namespace AndroidSample
     {
         private Auth0Client client;
         private Button loginButton;
+        private Button logoutButton;
         private TextView userDetailsTextView;
-        private AuthorizeState authorizeState;
         ProgressDialog progress;
 
         protected override void OnCreate(Bundle bundle)
@@ -35,6 +37,9 @@ namespace AndroidSample
 
             loginButton = FindViewById<Button>(Resource.Id.LoginButton);
             loginButton.Click += LoginButtonOnClick;
+
+            logoutButton = FindViewById<Button>(Resource.Id.LogoutButton);
+            logoutButton.Click += LogoutButtonOnClick;
 
             userDetailsTextView = FindViewById<TextView>(Resource.Id.UserDetailsTextView);
             userDetailsTextView.MovementMethod = new ScrollingMovementMethod();
@@ -70,7 +75,7 @@ namespace AndroidSample
 
         private async void LoginButtonOnClick(object sender, EventArgs eventArgs)
         {
-            userDetailsTextView.Text = "";
+            userDetailsTextView.Text = string.Empty;
 
             progress = new ProgressDialog(this);
             progress.SetTitle("Log In");
@@ -88,6 +93,8 @@ namespace AndroidSample
             }
             else
             {
+                loginButton.Visibility = ViewStates.Gone;
+                logoutButton.Visibility = ViewStates.Visible;
                 sb.AppendLine($"ID Token: {loginResult.IdentityToken}");
                 sb.AppendLine($"Access Token: {loginResult.AccessToken}");
                 sb.AppendLine($"Refresh Token: {loginResult.RefreshToken}");
@@ -102,6 +109,19 @@ namespace AndroidSample
             }
 
             userDetailsTextView.Text = sb.ToString();
+        }
+
+        private async void LogoutButtonOnClick(object sender, EventArgs eventArgs)
+        {
+            BrowserResultType browserResult = await client.LogoutAsync();
+            if (browserResult != BrowserResultType.Success)
+            {
+                userDetailsTextView.Text = browserResult.ToString();
+                return;
+            }
+            loginButton.Visibility = ViewStates.Visible;
+            logoutButton.Visibility = ViewStates.Gone;
+            userDetailsTextView.Text = string.Empty;
         }
     }
 }
