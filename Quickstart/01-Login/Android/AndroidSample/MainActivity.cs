@@ -4,12 +4,8 @@ using Android.Content.PM;
 using Android.OS;
 using Android.Text.Method;
 using Android.Widget;
-using Android.Views;
 using Auth0.OidcClient;
-using IdentityModel.OidcClient;
-using IdentityModel.OidcClient.Browser;
 using System;
-using System.Text;
 
 namespace AndroidSample
 {
@@ -21,107 +17,96 @@ namespace AndroidSample
         DataScheme = "com.auth0.quickstart",
         DataHost = "@string/auth0_domain",
         DataPathPrefix = "/android/com.auth0.quickstart/callback")]
-    public class MainActivity : Activity
+    public class MainActivity : Auth0ClientActivity
     {
-        private Auth0Client client;
-        private Button loginButton;
-        private Button logoutButton;
-        private TextView userDetailsTextView;
-        ProgressDialog progress;
+        private Auth0Client _auth0Client;
+        private Action<string> writeLine;
+        private Action clearText;
+        private TextView _userDetailsTextView;
+        private string accessToken;
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
-            SetContentView(Resource.Layout.Main);
-
-            loginButton = FindViewById<Button>(Resource.Id.LoginButton);
-            loginButton.Click += LoginButtonOnClick;
-
-            logoutButton = FindViewById<Button>(Resource.Id.LogoutButton);
-            logoutButton.Click += LogoutButtonOnClick;
-
-            userDetailsTextView = FindViewById<TextView>(Resource.Id.UserDetailsTextView);
-            userDetailsTextView.MovementMethod = new ScrollingMovementMethod();
-            userDetailsTextView.Text = String.Empty;
-
-            client = new Auth0Client(new Auth0ClientOptions
+            _auth0Client = new Auth0Client(new Auth0ClientOptions
             {
-                Domain = Resources.GetString(Resource.String.auth0_domain),
-                ClientId = Resources.GetString(Resource.String.auth0_client_id),
-                Scope = "openid profile"
+                Domain = GetString(Resource.String.auth0_domain),
+                ClientId = GetString(Resource.String.auth0_client_id),
+                Scope = "openid profile email"
             });
-        }
 
-        protected override void OnResume()
-        {
-            base.OnResume();
+            SetContentView(Resource.Layout.Main);
+            FindViewById<Button>(Resource.Id.LoginButton).Click += LoginButtonOnClick;
+            FindViewById<Button>(Resource.Id.LogoutButton).Click += LogoutButtonOnClick;
+            FindViewById<Button>(Resource.Id.UserButton).Click += UserButtonOnClick;
 
-            if (progress != null)
-            {
-                progress.Dismiss();
+            _userDetailsTextView = FindViewById<TextView>(Resource.Id.UserDetailsTextView);
+            _userDetailsTextView.MovementMethod = new ScrollingMovementMethod();
 
-                progress.Dispose();
-                progress = null;
-            }
-        }
-
-        protected override void OnNewIntent(Intent intent)
-        {
-            base.OnNewIntent(intent);
-
-            ActivityMediator.Instance.Send(intent.DataString);
+            writeLine = (s) => _userDetailsTextView.Text += s + "\n";
+            clearText = () => _userDetailsTextView.Text = "";
         }
 
         private async void LoginButtonOnClick(object sender, EventArgs eventArgs)
         {
-            userDetailsTextView.Text = string.Empty;
+            clearText();
+            writeLine("Starting login...");
 
-            progress = new ProgressDialog(this);
-            progress.SetTitle("Log In");
-            progress.SetMessage("Please wait while redirecting to login screen...");
-            progress.SetCancelable(false); // disable dismiss by tapping outside of the dialog
-            progress.Show();
+            var loginResult = await _auth0Client.LoginAsync();
 
-            // Login
-            var loginResult = await client.LoginAsync();
-
-            var sb = new StringBuilder();
             if (loginResult.IsError)
             {
-                sb.AppendLine($"An error occurred during login: {loginResult.Error}");
-            }
-            else
-            {
-                loginButton.Visibility = ViewStates.Gone;
-                logoutButton.Visibility = ViewStates.Visible;
-                sb.AppendLine($"ID Token: {loginResult.IdentityToken}");
-                sb.AppendLine($"Access Token: {loginResult.AccessToken}");
-                sb.AppendLine($"Refresh Token: {loginResult.RefreshToken}");
-
-                sb.AppendLine();
-
-                sb.AppendLine("-- Claims --");
-                foreach (var claim in loginResult.User.Claims)
-                {
-                    sb.AppendLine($"{claim.Type} = {claim.Value}");
-                }
-            }
-
-            userDetailsTextView.Text = sb.ToString();
-        }
-
-        private async void LogoutButtonOnClick(object sender, EventArgs eventArgs)
-        {
-            BrowserResultType browserResult = await client.LogoutAsync();
-            if (browserResult != BrowserResultType.Success)
-            {
-                userDetailsTextView.Text = browserResult.ToString();
+                writeLine($"An error occurred during login: {loginResult.Error}");
                 return;
             }
-            loginButton.Visibility = ViewStates.Visible;
-            logoutButton.Visibility = ViewStates.Gone;
-            userDetailsTextView.Text = string.Empty;
+
+            accessToken = loginResult.AccessToken;
+
+            writeLine($"id_token: {loginResult.IdentityToken}");
+            writeLine($"access_token: {loginResult.AccessToken}");
+            writeLine($"refresh_token: {loginResult.RefreshToken}");
+
+            writeLine($"name: {loginResult.User.FindFirst(c => c.Type == "name")?.Value}");
+            writeLine($"email: {loginResult.User.FindFirst(c => c.Type == "email")?.Value}");
+
+            foreach (var claim in loginResult.User.Claims)
+            {
+                writeLine($"{claim.Type} = {claim.Value}");
+            }
+        }
+
+        private async void LogoutButtonOnClick(object sender, EventArgs e)
+        {
+            clearText();
+            writeLine("Starting logout...");
+
+            var result = await _auth0Client.LogoutAsync();
+            accessToken = null;
+            writeLine(result.ToString());
+        }
+
+        private async void UserButtonOnClick(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(accessToken))
+            {
+                writeLine("You need to be logged in to get user info");
+                return;
+            }
+
+            writeLine("Getting user info...");
+            var userInfoResult = await _auth0Client.GetUserInfoAsync(accessToken);
+
+            if (userInfoResult.IsError)
+            {
+                writeLine($"An error occurred getting user info: {userInfoResult.Error}");
+                return;
+            }
+
+            foreach (var claim in userInfoResult.Claims)
+            {
+                writeLine($"{claim.Type} = {claim.Value}");
+            }
         }
     }
 }
