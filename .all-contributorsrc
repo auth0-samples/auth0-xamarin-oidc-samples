@@ -24,6 +24,15 @@
         "maintenance",
         "code"
       ]
+    },
+    {
+      "login": "alexisluque",
+      "name": "Alexis Luque",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/30907012?v=4",
+      "profile": "https://github.com/alexisluque",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
