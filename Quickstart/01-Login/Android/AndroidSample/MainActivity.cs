@@ -34,7 +34,7 @@ namespace AndroidSample
                 Domain = GetString(Resource.String.auth0_domain),
                 ClientId = GetString(Resource.String.auth0_client_id),
                 Scope = "openid profile email"
-            });
+            }, this);
 
             SetContentView(Resource.Layout.Main);
             FindViewById<Button>(Resource.Id.LoginButton).Click += LoginButtonOnClick;
