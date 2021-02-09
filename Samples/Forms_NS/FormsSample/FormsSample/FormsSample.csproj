@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Auth0.OidcClient.Core" Version="2.1.0" />
-    <PackageReference Include="Xamarin.Forms" Version="3.0.0.482510" />
+    <PackageReference Include="Auth0.OidcClient.Core" Version="3.1.2" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.1931" />
   </ItemGroup>
 </Project>
