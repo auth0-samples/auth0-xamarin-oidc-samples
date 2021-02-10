@@ -33,6 +33,17 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "frederikprijck",
+      "name": "Frederik Prijck",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2146903?s=460&v=4",
+      "profile": "https://github.com/frederikprijck",
+      "contributions": [
+        "code",
+        "maintenance",
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7,
