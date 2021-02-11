@@ -7,14 +7,19 @@
 Thanks goes to these wonderful people who contribute(d) or maintain(ed) this repo([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://twitter.com/beardaway"><img src="https://avatars3.githubusercontent.com/u/11062800?v=4" width="100px;" alt="Conrad Sopala"/><br /><sub><b>Conrad Sopala</b></sub></a><br /><a href="#maintenance-beardaway" title="Maintenance">🚧</a> <a href="#review-beardaway" title="Reviewed Pull Requests">👀</a></td>
-    <td align="center"><a href="https://damieng.com"><img src="https://avatars3.githubusercontent.com/u/118951?v=4" width="100px;" alt="Damien Guard"/><br /><sub><b>Damien Guard</b></sub></a><br /><a href="#maintenance-damieng" title="Maintenance">🚧</a> <a href="https://github.com/auth0-community/auth0-xamarin-oidc-samples/commits?author=damieng" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/alexisluque"><img src="https://avatars2.githubusercontent.com/u/30907012?v=4" width="100px;" alt="Alexis Luque"/><br /><sub><b>Alexis Luque</b></sub></a><br /><a href="https://github.com/auth0-community/auth0-xamarin-oidc-samples/commits?author=alexisluque" title="Code">💻</a></td>
+    <td align="center"><a href="https://twitter.com/beardaway"><img src="https://avatars3.githubusercontent.com/u/11062800?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Conrad Sopala</b></sub></a><br /><a href="#maintenance-beardaway" title="Maintenance">🚧</a> <a href="https://github.com/auth0-community/auth0-xamarin-oidc-samples/pulls?q=is%3Apr+reviewed-by%3Abeardaway" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://damieng.com"><img src="https://avatars3.githubusercontent.com/u/118951?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Damien Guard</b></sub></a><br /><a href="#maintenance-damieng" title="Maintenance">🚧</a> <a href="https://github.com/auth0-community/auth0-xamarin-oidc-samples/commits?author=damieng" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/alexisluque"><img src="https://avatars2.githubusercontent.com/u/30907012?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Alexis Luque</b></sub></a><br /><a href="https://github.com/auth0-community/auth0-xamarin-oidc-samples/commits?author=alexisluque" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/frederikprijck"><img src="https://avatars.githubusercontent.com/u/2146903?s=460&v=4?s=100" width="100px;" alt=""/><br /><sub><b>Frederik Prijck</b></sub></a><br /><a href="https://github.com/auth0-community/auth0-xamarin-oidc-samples/commits?author=frederikprijck" title="Code">💻</a> <a href="#maintenance-frederikprijck" title="Maintenance">🚧</a> <a href="https://github.com/auth0-community/auth0-xamarin-oidc-samples/pulls?q=is%3Apr+reviewed-by%3Afrederikprijck" title="Reviewed Pull Requests">👀</a></td>
   </tr>
 </table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
