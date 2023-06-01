@@ -150,14 +150,14 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Auth0.OidcClient.iOS">
-      <Version>3.2.0</Version>
+      <Version>3.3.7</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.1931" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2578" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\FormsSample\FormsSample.csproj">
-      <Project>{F4B25202-C1EC-45BC-9EFC-6C901F1AB637}</Project>
+      <Project>{2F67C9B3-34DB-46BA-88B9-B27C064558B5}</Project>
       <Name>FormsSample</Name>
     </ProjectReference>
   </ItemGroup>
