@@ -35,8 +35,8 @@ public partial class MyViewController : UIViewController {
 
         _client = new Auth0Client(new Auth0ClientOptions
         {
-            Domain = "frdrkprck.eu.auth0.com",
-            ClientId = "tT6PAFoiuVf5blcVQ6dNHErsq9tOzhIr",
+            Domain = "{DOMAIN}",
+            ClientId = "{CLIENT_ID}",
             Scope = "openid profile",
             RedirectUri = callbackUrl,
             PostLogoutRedirectUri = callbackUrl
