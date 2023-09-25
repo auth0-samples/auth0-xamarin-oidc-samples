@@ -4,7 +4,8 @@ using Auth0.OidcClient;
 
 namespace iOSSample;
 
-public partial class MyViewController : UIViewController {
+public partial class MyViewController : UIViewController
+{
     private Auth0Client _client;
 
     public MyViewController () : base (nameof (MyViewController), null)
