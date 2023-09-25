@@ -31,16 +31,11 @@ public partial class MyViewController : UIViewController
 
     private async void LoginButton_TouchUpInside(object sender, EventArgs e)
     {
-
-        var callbackUrl = $"{MainBundle.BundleIdentifier}://frdrkprck.eu.auth0.com/ios/{MainBundle.BundleIdentifier}/callback";
-
         _client = new Auth0Client(new Auth0ClientOptions
         {
             Domain = "{DOMAIN}",
             ClientId = "{CLIENT_ID}",
-            Scope = "openid profile",
-            RedirectUri = callbackUrl,
-            PostLogoutRedirectUri = callbackUrl
+            Scope = "openid profile"
         });
 
         var loginResult = await _client.LoginAsync();
