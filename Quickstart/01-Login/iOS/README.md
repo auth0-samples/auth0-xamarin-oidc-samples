@@ -130,19 +130,19 @@ return true;
 
 ## Contribute
 
-Feel like contributing to this repo? We're glad to hear that! Before you start contributing please visit our [Contributing Guideline](https://github.com/auth0-community/getting-started/blob/master/CONTRIBUTION.md).
+Feel like contributing to this repo? We're glad to hear that! Before you start contributing please visit our [Contributing Guideline](https://github.com/auth0-samples/getting-started/blob/master/CONTRIBUTION.md).
 
-Here you can also find the [PR template](https://github.com/auth0-community/auth0-xamarin-oidc-samples/blob/master/PULL_REQUEST_TEMPLATE.md) to fill once creating a PR. It will automatically appear once you open a pull request.
+Here you can also find the [PR template](https://github.com/auth0-samples/auth0-xamarin-oidc-samples/blob/master/PULL_REQUEST_TEMPLATE.md) to fill once creating a PR. It will automatically appear once you open a pull request.
 
 ## Issues Reporting
 
-Spotted a bug or any other kind of issue? We're just humans and we're always waiting for constructive feedback! Check our section on how to [report issues](https://github.com/auth0-community/getting-started/blob/master/CONTRIBUTION.md#issues)!
+Spotted a bug or any other kind of issue? We're just humans and we're always waiting for constructive feedback! Check our section on how to [report issues](https://github.com/auth0-samples/getting-started/blob/master/CONTRIBUTION.md#issues)!
 
-Here you can also find the [Issue template](https://github.com/auth0-community/auth0-xamarin-oidc-samples/blob/master/ISSUE_TEMPLATE.md) to fill once opening a new issue. It will automatically appear once you create an issue.
+Here you can also find the [Issue template](https://github.com/auth0-samples/auth0-xamarin-oidc-samples/blob/master/ISSUE_TEMPLATE.md) to fill once opening a new issue. It will automatically appear once you create an issue.
 
 ## Repo Community
 
-Feel like PRs and issues are not enough? Want to dive into further discussion about the tool? We created topics for each Auth0 Community repo so that you can join discussion on stack available on our repos. Here it is for this one: [auth0-xamarin-oidc-samples](https://community.auth0.com/t/auth0-community-oss-auth0-xamarin-oidc-samples/15973)
+Feel like PRs and issues are not enough? Want to dive into further discussion about the tool? We created topics for each Auth0 Community repo so that you can join discussion on stack available on our repos. Here it is for this one: [auth0-xamarin-oidc-samples](https://community.auth0.com/t/auth0-samples-oss-auth0-xamarin-oidc-samples/15973)
 
 <a href="https://community.auth0.com/">
 <img src="/Assets/join_auth0_community_badge.png"/>
@@ -150,7 +150,7 @@ Feel like PRs and issues are not enough? Want to dive into further discussion ab
 
 ## License
 
-This project is licensed under the MIT license. See the [LICENSE](https://github.com/auth0-community/auth0-xamarin-oidc-samples/blob/master/LICENSE) file for more info.
+This project is licensed under the MIT license. See the [LICENSE](https://github.com/auth0-samples/auth0-xamarin-oidc-samples/blob/master/LICENSE) file for more info.
 
 ## What is Auth0?
 
